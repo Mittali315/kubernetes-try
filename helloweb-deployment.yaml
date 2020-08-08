@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloweb1
+  labels:
+    app: hello1
+spec:
+  selector:
+    matchLabels:
+      app: hello1
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: hello1
+        tier: web
+    spec:
+      containers:
+      - name: hello-app1
+        image: mittali1/19-advanced_django_cbv_advcbv:latest
+        ports:
+        - containerPort: 8080
